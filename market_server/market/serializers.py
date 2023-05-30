@@ -5,7 +5,7 @@ from market.models import User, Address, ProfileUser, Vehicle
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['username', 'password']
+        fields = ['username', 'password', 'date_joined', 'profile']
 
 
 class AddressSerializer(serializers.ModelSerializer):
