@@ -1,11 +1,11 @@
 init-env:
 	virtualenv venv
 	source venv/bin/activate
-	pip install -r auto_market/requirements.txt
+	pip install -r market_server/requirements.txt
 
 update-db:
-	python auto_market/manage.py makemigrations market
-	python auto_market/manage.py migrate
+	python market_server/manage.py makemigrations market
+	python market_server/manage.py migrate
 
 start-server: update-db
-	python auto_market/manage.py runserver
+	python market_server/manage.py runserver
