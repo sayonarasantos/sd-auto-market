@@ -11,8 +11,8 @@ from market.models import CustomUser, Vehicle
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = CustomUser
-        fields = ['id', 'username', 'password', 'date_joined', 'adress_state',
-                  'adress_city', 'adress_neighborhood', 'adress_street',
+        fields = ['id', 'username', 'password', 'date_joined', 'address_state',
+                  'address_city', 'address_neighborhood', 'address_street',
                   'address_number', 'address_complement']
 
 

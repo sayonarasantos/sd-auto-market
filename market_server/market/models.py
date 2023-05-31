@@ -10,10 +10,10 @@ from django.contrib.auth.models import AbstractUser
 
 
 class CustomUser(AbstractUser):
-    adress_state = models.CharField(max_length=150, blank=True)
-    adress_city = models.CharField(max_length=150, blank=True)
-    adress_neighborhood = models.CharField(max_length=150, blank=True)
-    adress_street = models.CharField(max_length=150, blank=True)
+    address_state = models.CharField(max_length=150, blank=True)
+    address_city = models.CharField(max_length=150, blank=True)
+    address_neighborhood = models.CharField(max_length=150, blank=True)
+    address_street = models.CharField(max_length=150, blank=True)
     address_number = models.PositiveIntegerField(blank=True)
     address_complement = models.CharField(max_length=150, blank=True)
 
