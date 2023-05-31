@@ -1,9 +1,12 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import api from '../api';
 
 const UserForm = () => {
+  const location = useLocation();
+  const { user } = location.state || {};
   const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     username: '',
     password: '',
@@ -15,6 +18,21 @@ const UserForm = () => {
     address_complement: '',
   });
 
+  useEffect(() => {
+    if (user) {
+      setFormData({
+        username: user.username,
+        password: user.password,
+        address_state: user.address_state,
+        address_city: user.address_city,
+        address_neighborhood: user.address_neighborhood,
+        address_street: user.address_street,
+        address_number: user.address_number,
+        address_complement: user.address_complement,
+      });
+    }
+  }, [user]);
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -22,10 +40,14 @@ const UserForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await api.post('/user', formData);
+      if (user) {
+        await api.put(`/user_config/${user.id}`, formData);
+      } else {
+        await api.post('/user', formData);
+      }
       navigate('/users');
     } catch (error) {
-      console.error('Error creating user:', error);
+      console.error('Error creating/updating user:', error);
     }
   };
 
@@ -102,8 +124,8 @@ const UserForm = () => {
             value={formData.address_number}
             onChange={handleChange}
             required
-          />
-        </div>
+            />
+            </div>
         <div className="form-row">
           <label htmlFor="address_complement">Complemento</label>
           <input
@@ -115,7 +137,7 @@ const UserForm = () => {
           />
         </div>
         <div className="form-row">
-          <button type="submit">Criar</button>
+          <button type="submit">Salvar</button>
         </div>
       </form>
     </div>
@@ -123,3 +145,4 @@ const UserForm = () => {
 }
 
 export default UserForm;
+    

@@ -6,13 +6,11 @@ import api from '../api';
 
 const UserDetail = () => {
   const { id } = useParams();
-
   const [user, setUser] = useState(null);
-
   const navigate = useNavigate();
 
-  const handleUpdate = (id) => {
-    navigate(`/users/update/${id}`);
+  const handleUpdate = () => {
+    navigate(`/users/update/${id}`, { state: { user } });
   };
 
   const handleDelete = (id) => {
