@@ -5,7 +5,7 @@ import './App.css';
 import UserList from './components/UserList';
 import UserForm from './components/UserForm';
 import UserDetail from './components/UserDetail';
-import UserPage from './components/UserPage';
+import UserDelete from './components/UserDelete';
 
 function App() {
   return (
@@ -25,7 +25,7 @@ function App() {
           <Route exact path="/users/create" element={<UserForm />} />
           <Route exact path="/users/:id" element={<UserDetail />} />
           <Route exact path="/users/update/:id" element={<UserForm />} />
-          <Route exact path="/users/delete/:id" element={<UserPage />} />
+          <Route exact path="/users/delete/:id" element={<UserDelete />} />
         </Routes>
       </div>
     </Router>

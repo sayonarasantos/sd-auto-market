@@ -31,7 +31,7 @@ const UserDetail = () => {
     };
 
     fetchUser();
-  }, [id]); // Include 'id' in the dependency array
+  }, [id]);
 
   return (
     <div className="user-detail">
