@@ -13,10 +13,10 @@ function App() {
       <div className="App">
         <div className="header">
           <nav className="navbar">
-            <Link to="/" className="navbar-brand">User Management</Link>
+            <Link to="/" className="navbar-brand">Gerenciar usuários</Link>
             <ul className="navbar-links">
-              <li><Link to="/users">Users</Link></li>
-              <li><Link to="/users/create">Create User</Link></li>
+              <li><Link to="/users">Listar</Link></li>
+              <li><Link to="/users/create">Cadastrar</Link></li>
             </ul>
           </nav>
         </div>

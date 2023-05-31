@@ -65,32 +65,11 @@
   cursor: pointer;
 }
 
-.user-form {
-  max-width: 500px;
-  margin: 0 auto;
-}
-
-.user-form label {
-  display: block;
-  margin-bottom: 5px;
-  font-weight: bold;
-}
-
-.user-form input[type='text'],
-.user-form input[type='password'] {
-  width: 100%;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  margin-bottom: 10px;
-}
-
-.user-form button {
-  background-color: #4caf50;
+button {
+  margin-top: 25px;
   color: white;
   border: none;
   padding: 10px 16px;
-  text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 14px;
@@ -98,13 +77,66 @@
   border-radius: 4px;
 }
 
+.user-form {
+  max-width: 500px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.user-form label, h3 {
+  display: flex;
+  margin-bottom: 5px;
+  font-weight: bold;
+  margin-right: 10px;
+  width: 130px;
+}
+
+.user-form h3 {
+  margin-top: 25px;
+}
+
+.user-form input[type='text'],
+.user-form input[type='password'],
+.user-form input[type='number'] {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  flex: 1;
+}
+
+.user-form button {
+  background-color: #4caf50;
+}
+
+.form-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
 .user-detail {
   max-width: 500px;
   margin: 0 auto;
+  text-align: left;
 }
 
 .user-detail p {
   margin-bottom: 5px;
+}
+
+.user-detail button {
+  margin-left: 0;
+  margin-right: 15px;
+}
+
+.button-update {
+  background-color: #4caf50;
+}
+
+.button-delete {
+  background-color: #6ab2bf;
 }
 
 .error-message {

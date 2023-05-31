@@ -1,12 +1,23 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 // import axios from 'axios';
 import api from '../api';
 
 
 const UserDetail = () => {
   const { id } = useParams();
+
   const [user, setUser] = useState(null);
+
+  const navigate = useNavigate();
+
+  const handleUpdate = (id) => {
+    navigate(`/users/update/${id}`);
+  };
+
+  const handleDelete = (id) => {
+    navigate(`/users/delete/${id}`);
+  };
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -24,14 +35,16 @@ const UserDetail = () => {
 
   return (
     <div className="user-detail">
-      <h2>User Detail</h2>
+      <h2 style={{ textAlign: 'center' }} >Informações de usuário</h2>
       {user ? (
         <div>
           <p><strong>ID:</strong> {user.id}</p>
-          <p><strong>Name:</strong> {user.name}</p>
-          <p><strong>Email:</strong> {user.email}</p>
-          <Link to={`/users/update/${user.id}`}>Update</Link>
-          <Link to={`/users/delete/${user.id}`}>Delete</Link>
+          <p><strong>Nome de usuário:</strong> {user.username}</p>
+          <p><strong>Endereço:</strong> {user.address_state}, {user.address_city}, {user.address_neighborhood}, {user.address_street}, {user.address_number}, {user.address_complement}</p>
+          <div className="user-actions">
+            <button className="button-update" onClick={() => handleUpdate(user.id)}>Atualizar</button>
+            <button className="button-delete" onClick={() => handleDelete(user.id)}>Remover</button>
+          </div>
         </div>
       ) : (
         <p>Loading user...</p>

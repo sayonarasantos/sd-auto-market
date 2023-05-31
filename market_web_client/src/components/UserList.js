@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 import api from '../api';
 
 const UserList = () => {
@@ -20,13 +22,13 @@ const UserList = () => {
 
   return (
     <div className="user-list">
-      <h2>User List</h2>
+      <h2>Lista de usuários</h2>
       <table>
         <thead>
           <tr>
-            <th>Username</th>
-            <th>Date Joined</th>
-            <th>Profile</th>
+            <th>Nome de usuário</th>
+            <th>Data de criação</th>
+            <th>Endereço</th>
           </tr>
         </thead>
         <tbody>
@@ -34,7 +36,12 @@ const UserList = () => {
             <tr key={user.id}>
               <td>{user.username}</td>
               <td>{user.date_joined}</td>
-              <td>{user.profile}</td>
+              <td>{user.address_state}, {user.address_city}</td>
+              <td>
+                <Link to={`/users/${user.id}`}>
+                  <FontAwesomeIcon icon={faInfoCircle} />
+                </Link>
+              </td>
             </tr>
           ))}
         </tbody>
