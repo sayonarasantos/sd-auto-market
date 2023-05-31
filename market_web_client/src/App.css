@@ -139,6 +139,19 @@ button {
   background-color: #6ab2bf;
 }
 
+.user-delete button {
+  margin-left: 0;
+  margin-right: 15px;
+}
+
+.button-delete-yes {
+  background-color: rgb(202, 25, 25);
+}
+
+.button-delete-no {
+  background-color: #6ab2bf;
+}
+
 .error-message {
   color: red;
   margin-bottom: 10px;

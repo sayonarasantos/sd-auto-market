@@ -30,13 +30,18 @@ const UserDelete = () => {
     }
   };
 
+  const handleReturn = async () => {
+    navigate(`/users/${id}`);
+  };
+
   return (
-    <div className="user-page">
-      <h2>Delete User</h2>
+    <div className="user-delete">
+      <h2>Remoção de usuário</h2>
       {user ? (
         <div>
           <p>Você tem certeza que quer remover o usuário {user.username}?</p>
-          <button onClick={handleDelete}>Delete</button>
+          <button className="button-delete-yes" onClick={handleDelete}>Sim</button>
+          <button className="button-delete-no" onClick={handleReturn}>Não</button>
         </div>
       ) : (
         <p>Loading user...</p>
