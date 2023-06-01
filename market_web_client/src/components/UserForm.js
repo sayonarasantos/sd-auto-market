@@ -77,6 +77,16 @@ const UserForm = () => {
         </div>
         <h3>Endereço</h3>
         <div className="form-row">
+          <label htmlFor="address_cep">CEP</label>
+          <input
+            type="number"
+            name="address_cep"
+            value={formData.address_cep}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div className="form-row">
           <label htmlFor="address_state">Estado</label>
           <input
             type="text"

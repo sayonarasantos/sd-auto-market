@@ -38,7 +38,7 @@ const UserDetail = () => {
         <div>
           <p><strong>ID:</strong> {user.id}</p>
           <p><strong>Nome de usuário:</strong> {user.username}</p>
-          <p><strong>Endereço:</strong> {user.address_state}, {user.address_city}, {user.address_neighborhood}, {user.address_street}, {user.address_number}, {user.address_complement}</p>
+          <p><strong>Endereço:</strong> {user.address_cep}, {user.address_state}, {user.address_city}, {user.address_neighborhood}, {user.address_street}, {user.address_number}, {user.address_complement}</p>
           <div className="user-actions">
             <button className="button-update" onClick={() => handleUpdate(user.id)}>Atualizar</button>
             <button className="button-delete" onClick={() => handleDelete(user.id)}>Remover</button>
