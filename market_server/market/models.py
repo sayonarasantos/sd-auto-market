@@ -10,6 +10,7 @@ from django.contrib.auth.models import AbstractUser
 
 
 class CustomUser(AbstractUser):
+    address_cep = models.PositiveIntegerField(blank=True)
     address_state = models.CharField(max_length=150, blank=True)
     address_city = models.CharField(max_length=150, blank=True)
     address_neighborhood = models.CharField(max_length=150, blank=True)
