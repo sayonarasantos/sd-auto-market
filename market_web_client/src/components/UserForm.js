@@ -10,6 +10,7 @@ const UserForm = () => {
   const [formData, setFormData] = useState({
     username: '',
     password: '',
+    address_cep: '',
     address_state: '',
     address_city: '',
     address_neighborhood: '',
@@ -23,6 +24,7 @@ const UserForm = () => {
       setFormData({
         username: user.username,
         password: user.password,
+        address_cep: user.address_cep,
         address_state: user.address_state,
         address_city: user.address_city,
         address_neighborhood: user.address_neighborhood,
