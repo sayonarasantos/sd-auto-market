@@ -1,9 +1,12 @@
 import requests
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from rest_framework.generics import RetrieveUpdateDestroyAPIView, ListCreateAPIView
+from rest_framework.generics import RetrieveUpdateDestroyAPIView, ListCreateAPIView, RetrieveAPIView
+from rest_framework.renderers import JSONRenderer
+from rest_framework_xml.renderers import XMLRenderer
 from market.models import CustomUser, Vehicle
 from market.serializers import UserSerializer, VehicleSerializer
+from .renderers import ProtoBufferRenderer
 
 
 # class AddressRetrieveUpdateDestroy(RetrieveUpdateDestroyAPIView):
@@ -32,6 +35,11 @@ def get_address_info(request, cep):
 class UserListCreate(ListCreateAPIView):
     queryset = CustomUser.objects.all()
     serializer_class = UserSerializer
+
+class UserRetrieve(RetrieveAPIView):
+    queryset = CustomUser.objects.all()
+    serializer_class = UserSerializer
+    renderer_classes = [JSONRenderer, XMLRenderer, ProtoBufferRenderer]
 
 class UserRetrieveUpdateDestroy(RetrieveUpdateDestroyAPIView):
     queryset = CustomUser.objects.all()

@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+
+message SomeMessage {
+    uint32 id = 1;
+    string username = 2;
+    string password = 3;
+    google.protobuf.Timestamp date_joined = 4;
+    uint32 address_cep = 5;
+    string address_state = 6;
+    string address_city = 7;
+    string address_neighborhood = 8;
+    string address_street = 9;
+    uint32 address_number = 10;
+    string address_complement = 11;
+}
