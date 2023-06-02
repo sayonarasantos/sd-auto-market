@@ -1,4 +1,6 @@
 import requests
+from rest_framework.filters import SearchFilter
+from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.generics import ListCreateAPIView, RetrieveAPIView, UpdateAPIView, DestroyAPIView
@@ -31,6 +33,9 @@ def get_address_info(request, cep):
 class UserListCreate(ListCreateAPIView):
     queryset = CustomUser.objects.all()
     serializer_class = UserSerializer
+    filter_backends = [DjangoFilterBackend, SearchFilter]
+    filterset_fields = ['address_state', 'address_city']
+    search_fields = ['username', 'address_street']
 
 class UserRetrieve(RetrieveAPIView):
     queryset = CustomUser.objects.all()

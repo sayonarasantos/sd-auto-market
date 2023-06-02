@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'market',
     'drf_yasg',
     'corsheaders',
+    'django_filters',
 ]
 
 MIDDLEWARE = [
