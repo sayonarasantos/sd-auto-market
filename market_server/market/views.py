@@ -16,10 +16,10 @@ def get_address_info(request, cep):
     if response.status_code == 200:
         data = response.json()
         address_info = {
-            'state': data.get('state'),
-            'city': data.get('city'),
-            'neighborhood': data.get('neighborhood'),
-            'street': data.get('street')
+            'address_state': data.get('state'),
+            'address_city': data.get('city'),
+            'address_neighborhood': data.get('neighborhood'),
+            'address_street': data.get('street')
         }
         return Response(address_info)
         # serializer = AddressSerializer(address_info)

@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import api from '../api';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 const UserForm = () => {
   const location = useLocation();
@@ -37,6 +39,22 @@ const UserForm = () => {
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSearchAddress = async () => {
+    try {
+      const response = await api.get(`/get_base_address/${formData.address_cep}/`);
+      const { address_state, address_city, address_neighborhood, address_street } = response.data;
+      setFormData({
+        ...formData,
+        address_state,
+        address_city,
+        address_neighborhood,
+        address_street,
+      });
+    } catch (error) {
+      console.error('Error searching address:', error);
+    }
   };
 
   const handleSubmit = async (e) => {
@@ -80,13 +98,22 @@ const UserForm = () => {
         <h3>Endereço</h3>
         <div className="form-row">
           <label htmlFor="address_cep">CEP</label>
-          <input
-            type="number"
-            name="address_cep"
-            value={formData.address_cep}
-            onChange={handleChange}
-            required
-          />
+          <div className="cep-input">
+            <input
+              type="number"
+              name="address_cep"
+              value={formData.address_cep}
+              onChange={handleChange}
+              required
+            />
+                <button
+                  type="button"
+                  className="search-icon"
+                  onClick={handleSearchAddress}
+                >
+                  <FontAwesomeIcon icon={faSearch} />
+                </button>
+          </div>
         </div>
         <div className="form-row">
           <label htmlFor="address_state">Estado</label>
@@ -136,8 +163,8 @@ const UserForm = () => {
             value={formData.address_number}
             onChange={handleChange}
             required
-            />
-            </div>
+          />
+        </div>
         <div className="form-row">
           <label htmlFor="address_complement">Complemento</label>
           <input
@@ -157,4 +184,3 @@ const UserForm = () => {
 }
 
 export default UserForm;
-    
