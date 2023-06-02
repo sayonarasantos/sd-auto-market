@@ -22,8 +22,8 @@ class CustomUser(AbstractUser):
         return self.username
 
 
-class Vehicle(models.Model):
-    owner = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
-    vendor = models.CharField(max_length=150)
-    model = models.CharField(max_length=150)
-    year = models.PositiveIntegerField()
+# class Vehicle(models.Model):
+#     owner = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+#     vendor = models.CharField(max_length=150)
+#     model = models.CharField(max_length=150)
+#     year = models.PositiveIntegerField()

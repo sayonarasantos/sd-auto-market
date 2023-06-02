@@ -43,7 +43,7 @@ const UserForm = () => {
     e.preventDefault();
     try {
       if (user) {
-        await api.put(`/user_config/${user.id}`, formData);
+        await api.put(`/user_update/${user.id}`, formData);
       } else {
         await api.post('/user', formData);
       }
