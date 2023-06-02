@@ -42,6 +42,16 @@ const UserList = () => {
                   <FontAwesomeIcon icon={faInfoCircle} />
                 </Link>
               </td>
+              <td>
+                <Link to={`/users-buf/${user.id}`}>
+                  ProtoBuffer
+                </Link>
+              </td>
+              <td>
+                <Link to={`/users-xml/${user.id}`}>
+                  XML
+                </Link>
+              </td>
             </tr>
           ))}
         </tbody>

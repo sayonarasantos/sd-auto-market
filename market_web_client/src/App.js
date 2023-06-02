@@ -5,6 +5,8 @@ import './App.css';
 import UserList from './components/UserList';
 import UserForm from './components/UserForm';
 import UserDetail from './components/UserDetail';
+import UserDetailBuf from './components/UserDetailBuf';
+import UserDetailXML from './components/UserDetailXML';
 import UserDelete from './components/UserDelete';
 
 function App() {
@@ -24,6 +26,8 @@ function App() {
           <Route exact path="/users" element={<UserList />} />
           <Route exact path="/users/create" element={<UserForm />} />
           <Route exact path="/users/:id" element={<UserDetail />} />
+          <Route exact path="/users-buf/:id" element={<UserDetailBuf />} />
+          <Route exact path="/users-xml/:id" element={<UserDetailXML />} />
           <Route exact path="/users/update/:id" element={<UserForm />} />
           <Route exact path="/users/delete/:id" element={<UserDelete />} />
         </Routes>
