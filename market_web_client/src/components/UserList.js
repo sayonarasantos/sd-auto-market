@@ -38,9 +38,9 @@ const UserList = () => {
   return (
     <div className="user-list">
       <h2>Lista de usuários</h2>
-      <div>
-        <input type="text" value={searchQuery} onChange={handleSearchChange} placeholder="Search by username or address" />
-        <button onClick={handleSearch}>Search</button>
+      <div className="button-search">
+        <input type="text" value={searchQuery} onChange={handleSearchChange} placeholder="Nome de usuário ou endereço..."/>
+        <button onClick={handleSearch}>Buscar</button>
       </div>
       <table>
         <thead>
@@ -48,6 +48,7 @@ const UserList = () => {
             <th>Nome de usuário</th>
             <th>Data de criação</th>
             <th>Endereço</th>
+            <th colSpan="3">Dados completos</th>
           </tr>
         </thead>
         <tbody>
